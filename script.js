@@ -8,6 +8,6 @@ export let options = {
   },
 };
 export default function () {
-  http.get('https://httpbin.org/');
+  http.get('https://cambodia.tax.gov.kh:7777/khtax/');
   sleep(3);
 }

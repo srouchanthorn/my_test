@@ -8,6 +8,6 @@ export let options = {
   },
 };
 export default function () {
-  http.get('http://k6.io/');
+  http.get('https://httpbin.org/');
   sleep(3);
 }

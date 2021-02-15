@@ -19,7 +19,7 @@ export default function() {
  
 	
 	group("front page", function() {
-		check(http.get("https://cambodia.tax.gov.kh:9009/reg/rt/", {
+		check(http.get("https://cambodia.tax.gov.kh:9009", {
 			tags: {'kind': 'html' },
 		}), {
 			"status is 200": (res) => res.status === 200,

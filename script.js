@@ -15,6 +15,5 @@ export let options = {
 export default function() {
 
 	 http.get('https://cambodia.tax.gov.kh:9009/reg/rt/index.php'); 
-    sleep(3); 
-
+     
 }

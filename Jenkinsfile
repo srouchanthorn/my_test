@@ -7,7 +7,7 @@ pipeline {
         stage('Performance Testing') {
             steps {
                 echo 'Running K6 performance tests...'
-                bat k6 login cloud --token ${K6_API_TOKEN}
+                bat 'k6 login cloud -t ${K6_API_TOKEN}'
                 bat 'k6 cloud script.js'
                 echo 'Completed Running K6 performance tests!'
             }

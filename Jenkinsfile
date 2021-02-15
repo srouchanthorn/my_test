@@ -8,7 +8,7 @@ pipeline {
             steps {
                 
              echo ' ${K6_API_TOKEN}'
-                bat 'k6 run -o cloud script.js'
+                bat 'k6 run   script.js'
              }
         }
     }

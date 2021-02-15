@@ -7,13 +7,30 @@ export let options = {
     { duration: '5m', target: 0 }, // ramp-down to 0 users
   ],
   thresholds: {
-    http_req_duration: ['p(95)<500'], // 95 percent of response times must be below 500ms
+    'http_req_duration{kind:html}': ["avg<=10"],
+		'http_req_duration{kind:img}': ["avg<=100"],
+		'http_reqs': ["rate>100"],
   },
 };
  
 
 export default function() {
 
-	 http.get('https://cambodia.tax.gov.kh:9009/reg/rt/index.php'); 
+ 
+	
+	group("front page", function() {
+		check(http.get("https://cambodia.tax.gov.kh:9009/reg/rt/", {
+			tags: {'kind': 'html' },
+		}), {
+			"status is 200": (res) => res.status === 200,
+		});
+	});
+	group("image", function() {
+		check(http.get("https://cambodia.tax.gov.kh:9009", {
+			tags: {'kind': 'img' },
+		}), {
+			"status is 200": (res) => res.status === 200,
+		});
+	});
      
 }
